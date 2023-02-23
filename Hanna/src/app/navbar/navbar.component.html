@@ -1,0 +1,78 @@
+<header class=" bg-white">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- lg+ -->
+        <nav class="flex items-center justify-between h-[87px] lg:h-[90px] lg:hidden">
+                <!-- <a title="" class="flex">
+                    <img class="w-auto h-8 lg:h-10" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" />
+                </a> -->
+                <div class=" lg:flex lg:items-center">
+                    <a (click)="onClickToggle()" routerLink="">
+                        <img src="../../assets/images/logo.png" alt="" class="w-[90px]">
+                     </a>
+                </div>
+               
+
+            <button (click)="onClickToggle()" type="button" class="inline-flex p-2 text-gray transition-all duration-200 rounded-md lg:hidden">
+                <!-- Menu open: "hidden", Menu closed: "block" -->
+                <svg class="block w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+
+                <!-- Menu open: "block", Menu closed: "hidden" -->
+                <svg class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+
+
+           
+        </nav>
+
+        <!-- xs to lg -->
+        <!-- mobile -->
+        <nav *ngIf="navVisible" class=" bg-light-black border border-white rounded-md shadow-md lg:hidden pt-5">
+            <div class="flow-root">
+                <div class="flex flex-col px-6 mt-4 mb-6 space-y-3">
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink=""> Kezdőlap </a>
+
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/about"> Rólam </a>
+
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/galery"> Galéria </a>
+
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/pack"> Csomagok </a>
+
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200 bg-transparent rounded-sm items-center" role="button" routerLink="/connect" (click)="onClickToggle()"> Kapcsolatok  </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+</header>
+
+<header class="bg-white mx-20 hidden lg:block">
+    <div class="flex flex-row items-center justify-center">
+        <div class="w-[200px] hidden lg:block">
+                <a (click)="onClickToggle()" routerLink="">
+                    <img src="../../assets/images/logo.png" alt="" class="w-[120px] mx-auto block">
+                 </a>
+        </div>
+        <div class="flex-1 space-x-14 justify-center items-center hidden lg:inline-flex">
+            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink=""> Kezdőlap </a>
+
+            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/about"> Rólam </a>
+
+            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/galery"> Galéria </a>
+
+            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/pack"> Csomagok </a>
+
+            <a title="" class="text-[17px] font-light text-gray transition-all duration-200 bg-transparent rounded-sm lg:inline-flex " role="button" routerLink="/connect"> Kapcsolatok </a>
+
+        </div>
+        <div class="w-[200px]">
+
+        </div>
+    </div>
+</header>
+
