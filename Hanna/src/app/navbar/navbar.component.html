@@ -5,9 +5,11 @@
                 <!-- <a title="" class="flex">
                     <img class="w-auto h-8 lg:h-10" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" />
                 </a> -->
+                <div class="lg:flex lg:items-center"></div>
+                <div class="lg:flex lg:items-center"></div>
                 <div class=" lg:flex lg:items-center">
                     <a (click)="onClickToggle()" routerLink="">
-                        <img src="../../assets/images/logo.png" alt="" class="w-[90px]">
+                        <img src="../../assets/images/logo.png" alt="" class="w-[90px]" oncontextmenu="return false;" ondragstart="return false;">
                      </a>
                 </div>
                
@@ -31,16 +33,16 @@
 
         <!-- xs to lg -->
         <!-- mobile -->
-        <nav *ngIf="navVisible" class=" bg-light-black border border-white rounded-md shadow-md lg:hidden pt-5">
+        <nav *ngIf="navVisible" class=" bg-light border border-white rounded-md shadow-md lg:hidden pt-5">
             <div class="flow-root">
                 <div class="flex flex-col px-6 mt-4 mb-6 space-y-3">
-                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink=""> Kezdőlap </a>
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink=""> Kezdőlap </a>
 
                     <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/about"> Rólam </a>
 
-                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/galery"> Galéria </a>
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/galery"> Galéria </a>
 
-                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/pack"> Csomagok </a>
+                    <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()"  routerLink="/pack"> Csomagok </a>
 
                     <a title="" class="text-[17px] font-light text-gray transition-all duration-200 bg-transparent rounded-sm items-center" role="button" routerLink="/connect" (click)="onClickToggle()"> Kapcsolatok  </a>
 
@@ -55,19 +57,19 @@
     <div class="flex flex-row items-center justify-center">
         <div class="w-[200px] hidden lg:block">
                 <a (click)="onClickToggle()" routerLink="">
-                    <img src="../../assets/images/logo.png" alt="" class="w-[120px] mx-auto block">
+                    <img src="../../assets/images/logo.png" alt="" class="w-[120px] mx-auto block" oncontextmenu="return false;" ondragstart="return false;">
                  </a>
         </div>
         <div class="flex-1 space-x-14 justify-center items-center hidden lg:inline-flex">
-            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink=""> Kezdőlap </a>
+            <a title="" class="text-[20px] font-light text-gray transition-all duration-200" routerLink=""> Kezdőlap </a>
 
-            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/about"> Rólam </a>
+            <a title="" class="text-[20px] font-light text-gray transition-all duration-200" (click)="onClickToggle()" routerLink="/about"> Rólam </a>
 
-            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/galery"> Galéria </a>
+            <a title="" class="text-[20px] font-light text-gray transition-all duration-200" routerLink="/galery"> Galéria </a>
 
-            <a title="" class="text-[17px] font-light text-gray transition-all duration-200" routerLink="/pack"> Csomagok </a>
+            <a title="" class="text-[20px] font-light text-gray transition-all duration-200" routerLink="/pack"> Csomagok </a>
 
-            <a title="" class="text-[17px] font-light text-gray transition-all duration-200 bg-transparent rounded-sm lg:inline-flex " role="button" routerLink="/connect"> Kapcsolatok </a>
+            <a title="" class="text-[20px] font-light text-gray transition-all duration-200 bg-transparent rounded-sm lg:inline-flex " role="button" routerLink="/connect"> Kapcsolatok </a>
 
         </div>
         <div class="w-[200px]">

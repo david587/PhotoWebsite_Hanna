@@ -1,19 +1,25 @@
 
     <div class="bg-light">
-        <img src="../../assets/images/logo.png" alt="" class="lg:max-w-[500px] md:max-w-[380px] max-w-[330px] mx-auto block">
+        <img src="../../assets/images/logo.png" alt="" class="lg:max-w-[500px] md:max-w-[380px] max-w-[330px] mx-auto block" oncontextmenu="return false;" ondragstart="return false;">
     
     <h1 class="Main lg:text-7xl md:text-6xl text-4xl font-extralight text-center">Hanna's Pictures Collection</h1>
     <div class="my-10">
         <p class="text-center font-light text-gray text-[18px]">Egyéni, páros vagy családi fotózások</p>
     </div>
     <div class="pb-14">
-        <button class="px-16 py-4 border-blue bg-blue text-white text-[18px] border-2 font-light mx-auto block hover:bg-white hover:text-blue hover:border-2">
-            Galéria
-        </button>
+        <a routerLink="/galery">
+            <button class="px-16 py-4 border-blue bg-blue text-white text-[18px] border-2 font-light mx-auto block hover:bg-white hover:text-blue hover:border-2">
+                Galéria
+            </button>
+        </a>
+       
     </div>
 </div>
     
 
 <section class="Galery bg-white  lg:mx-14 md:mx-10 mx-1 pt-1">
-    <img src="../../assets/images/collage.png" alt="" class="mx-auto block">
+    <img src="../../assets/images/collage.png" alt="" class="mx-auto block" oncontextmenu="return false;" ondragstart="return false;">
 </section>
+<div class="md:h-[60px] md:w-[60px] w-17 h-17 rounded-full bg-pink flex justify-center items-center" id="scrollImage">
+    <img  class="w-[50px]  invert" (click)="scrollToTop()" src="../../assets/svg/up.svg" alt="">
+</div>

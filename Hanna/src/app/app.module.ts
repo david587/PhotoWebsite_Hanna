@@ -10,6 +10,11 @@ import { AboutComponent } from './about/about.component';
 import { GaleryComponent } from './galery/galery.component';
 import { PackComponent } from './pack/pack.component';
 import { ConnectComponent } from './connect/connect.component';
+import { PersonComponent } from './person/person.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { EmitterService } from './shared/emitter.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,17 @@ import { ConnectComponent } from './connect/connect.component';
     AboutComponent,
     GaleryComponent,
     PackComponent,
-    ConnectComponent
+    ConnectComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EmitterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
