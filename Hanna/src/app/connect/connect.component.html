@@ -5,7 +5,7 @@
           </div>          
         <div>
             <div class="md:px-14 bg-light px-10 py-2 mb-14">
-                <h1 class="lg:text-5xl md:text-4xl text-3xl font-thin text-left font-serif lg:my-10 mt-5" >Kapcsolatok</h1>
+                <h1 class="Main lg:text-5xl md:text-4xl text-3xl font-thin text-left font-serif lg:my-10 mt-5" >Kapcsolatok</h1>
                 <div class="my-5">
                     <p class="font-normal text-gray text-[23px]">Árajánlatot kérnél?</p>
                     <p class="font-light text-gray text-[20px]">Üzenj nekem erről az oldalról vagy keress egyéb elérhetőségeimen!</p>
@@ -45,15 +45,15 @@
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="subject">Tárgy *</label>
                       <select id="subject" formControlName="subject" class="border border-gray font-light text-gray text-[20px] py-2 px-3 w-full" required>
-                        <option value="" disabled selected>Válasszon egy tárgyat</option>
-                        <option value="Általános">Általános</option>
-                        <option value="Számlázás">Számlázás</option>
-                        <option value="Szerződés">Szerződés</option>
+                        <option value="" disabled selected>Válasszon egy Kategoriát</option>
+                        <option value="Általános">Családi</option>
+                        <option value="Számlázás">Páros</option>
+                        <option value="Szerződés">Egyéni</option>
                         <option value="Egyéb">Egyéb</option>
                       </select>
                     </div>
                     <div class="mb-4" *ngIf="myForm.get('subject')?.value === 'Egyéb'">
-                        <label class="block font-light text-gray text-[20px] mb-2" for="customSubject">Egyéb tárgy *</label>
+                        <label class="block font-light text-gray text-[20px] mb-2" for="customSubject">Egyéb kategoria *</label>
                         <input type="text" id="customSubject" formControlName="customSubject" class="border border-gray  py-2 px-3 w-full" required>
                       </div>              
                     <div class="mb-4">
