@@ -26,6 +26,6 @@ class FormController extends Controller
     
         Form::create($request->all());
     
-        return response()->json(['message' => 'Üzenet sikeresen elküldve'], 201);
+        return response()->json(['message' => 'Üzenet sikeresen elküldve!'], 201);
     }
 }

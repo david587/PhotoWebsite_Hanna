@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmitterService } from '../shared/emitter.service';
 
@@ -7,13 +7,31 @@ import { EmitterService } from '../shared/emitter.service';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })
+
 export class PersonComponent implements OnInit {
   galleryById: any;
   lightboxOpen= false;
   lightboxImage!: string;
 
-  constructor(private route: ActivatedRoute,private emit: EmitterService) {}
+  constructor(private route: ActivatedRoute,private emit: EmitterService,private renderer: Renderer2, private el: ElementRef) {}
 
+  ngOnInit(): void {
+    this.galleryById = history.state.galleryById;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.renderer.addClass(entry.target, 'show');
+        } else {
+          this.renderer.removeClass(entry.target, 'show');
+        }
+      });
+    });
+  
+    const hiddenElements = this.el.nativeElement.querySelectorAll('.hiden');
+    hiddenElements.forEach((el: Element) => observer.observe(el));
+
+  }
   
   scrollToTop()
   {
@@ -21,7 +39,7 @@ export class PersonComponent implements OnInit {
     this.emit.onButton();
   }
 
-  openLightbox(imageUrl: string)
+  openLightbox(imageUrl: any)
   {
     this.lightboxOpen= true;
     this.lightboxImage = imageUrl;
@@ -31,10 +49,5 @@ export class PersonComponent implements OnInit {
   {
     this.lightboxOpen = false;
     this.lightboxImage = '';
-  }
-
-  ngOnInit(): void {
-    // Retrieve the data from the router state object
-    this.galleryById = history.state.galleryById;
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChunkPipe } from './pipes/chunk.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { PackComponent } from './pack/pack.component';
 import { ConnectComponent } from './connect/connect.component';
 import { PersonComponent } from './person/person.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { EmitterService } from './shared/emitter.service';
@@ -19,6 +21,7 @@ import { EmitterService } from './shared/emitter.service';
 @NgModule({
   declarations: [
     AppComponent,
+    ChunkPipe,
     NavbarComponent,
     FooterComponent,
     HomeComponent,
@@ -31,7 +34,8 @@ import { EmitterService } from './shared/emitter.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     EmitterService

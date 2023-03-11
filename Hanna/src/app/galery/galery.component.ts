@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmitterService } from '../shared/emitter.service';
 
@@ -7,8 +7,23 @@ import { EmitterService } from '../shared/emitter.service';
   templateUrl: './galery.component.html',
   styleUrls: ['./galery.component.scss']
 })
-export class GaleryComponent {
-  constructor(private router: Router,private emit: EmitterService) {}
+export class GaleryComponent implements OnInit {
+  constructor(private router: Router,private emit: EmitterService,private renderer: Renderer2, private el: ElementRef) {}
+  
+  ngOnInit(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.renderer.addClass(entry.target, 'show');
+        } else {
+          this.renderer.removeClass(entry.target, 'show');
+        }
+      });
+    });
+  
+    const hiddenElements = this.el.nativeElement.querySelectorAll('.hiden');
+    hiddenElements.forEach((el: Element) => observer.observe(el));
+  }
 
   scrollToTop()
   {
@@ -62,15 +77,12 @@ export class GaleryComponent {
         '../../assets/images/rituu/IMG_0291.jpg',
         '../../assets/images/rituu/IMG_0319.jpg',
         '../../assets/images/rituu/IMG_0322.jpg',
-        '../../assets/images/rituu/IMG_0323.jpg',
         '../../assets/images/rituu/IMG_0325.jpg',
-        '../../assets/images/rituu/IMG_0326.jpg',
         '../../assets/images/rituu/IMG_0341.jpg',
         '../../assets/images/rituu/IMG_0348.jpg',
         '../../assets/images/rituu/IMG_0357.jpg',
         '../../assets/images/rituu/IMG_0367.jpg',
         '../../assets/images/rituu/IMG_0369.jpg',
-        '../../assets/images/rituu/IMG_0370.jpg',
         '../../assets/images/rituu/IMG_0373.jpg',
         '../../assets/images/rituu/IMG_0380.jpg',
         '../../assets/images/rituu/IMG_0419.2.jpg',
@@ -103,12 +115,14 @@ export class GaleryComponent {
       img:[
   '../../assets/images/zsofi/zsofi1.jpg',
   '../../assets/images/zsofi/IMG_7579.jpg',
+  '../../assets/images/zsofi/IMG_7780.jpg',
   '../../assets/images/zsofi/IMG_7585.jpg',
   '../../assets/images/zsofi/IMG_7623.jpg',
   '../../assets/images/zsofi/IMG_7628.jpg',
   '../../assets/images/zsofi/IMG_7629.jpg',
   '../../assets/images/zsofi/IMG_7635.jpg',
   '../../assets/images/zsofi/IMG_7637.jpg',
+  '../../assets/images/zsofi/IMG_7776.jpg',
   '../../assets/images/zsofi/IMG_7651.jpg',
   '../../assets/images/zsofi/IMG_7655.jpg',
   '../../assets/images/zsofi/IMG_7661.jpg',
@@ -118,9 +132,8 @@ export class GaleryComponent {
   '../../assets/images/zsofi/IMG_7696.jpg',
   '../../assets/images/zsofi/IMG_7721.jpg',
   '../../assets/images/zsofi/IMG_7742.jpg',
-    '../../assets/images/zsofi/IMG_7776.jpg',
   '../../assets/images/zsofi/IMG_7775.jpg',
-  '../../assets/images/zsofi/IMG_7780.jpg',
+
       ] 
     },
   ]
@@ -130,7 +143,6 @@ export class GaleryComponent {
   sortById(id: any)
   {
     this.galleryById = this.gallery.find((picture) => picture.id === id);
-    console.log(this.galleryById);
     this.router.navigate(['/person'], { state: { galleryById: this.galleryById } });
   }
   

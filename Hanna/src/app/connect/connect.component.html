@@ -1,10 +1,12 @@
-<div class="md:mx-20 mx-4">
+
+<div class="md:mx-20">
+  <div class="cardDiv">
     <div class="grid md:grid-cols-2 grid-cols-1 ">
-        <div class="flex justify-center items-center h-screen">
+        <div class="flex justify-center items-center h-screen card hiden">
             <img src="../../assets/images/hanna.jpg" alt="" class="w-full h-full object-cover" oncontextmenu="return false;" ondragstart="return false;">
           </div>          
         <div>
-            <div class="md:px-14 bg-light px-10 py-2 mb-14">
+            <div class="md:px-14 bg-light px-10 py-2 mb-14 card hiden">
                 <h1 class="Main lg:text-5xl md:text-4xl text-3xl font-thin text-left font-serif lg:my-10 mt-5" >Kapcsolatok</h1>
                 <div class="my-5">
                     <p class="font-normal text-gray text-[23px]">Árajánlatot kérnél?</p>
@@ -33,14 +35,17 @@
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="firstName">Vezetéknév *</label>
                       <input type="text" id="firstName" formControlName="firstName" class="border border-gray  py-2 px-3 w-full" required>
+                      <p class="text-red-700">{{ error.firstName }}</p>
                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="lastName">Keresztnév *</label>
                       <input type="text" id="lastName" formControlName="lastName" class="border border-gray  py-2 px-3 w-full" required>
+                      <p class="text-red-700">{{ error.lastName }}</p>
                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="email">Email *</label>
                       <input type="email" id="email" formControlName="email" class="border border-gray  py-2 px-3 w-full" required>
+                      <p class="text-red-700">{{ error.email }}</p>
                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="subject">Tárgy *</label>
@@ -51,22 +56,30 @@
                         <option value="Szerződés">Egyéni</option>
                         <option value="Egyéb">Egyéb</option>
                       </select>
+                      <p class="text-red-700">{{ error.subject }}</p>
                     </div>
                     <div class="mb-4" *ngIf="myForm.get('subject')?.value === 'Egyéb'">
                         <label class="block font-light text-gray text-[20px] mb-2" for="customSubject">Egyéb kategoria *</label>
                         <input type="text" id="customSubject" formControlName="customSubject" class="border border-gray  py-2 px-3 w-full" required>
+                        <p class="text-red-700">{{ error.customSubject }}</p>
                       </div>              
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="message">Üzenet *</label>
                       <textarea id="message" formControlName="message" class="border border-gray h-[150px] py-2 px-3 w-full" required></textarea>
+                      <p class="text-red-700">{{ error.message }}</p>
                     </div>
                     <div class="py-10">
-                        <button type="submit" [disabled]="myForm.invalid" class="border-2 px-6 py-3 bg-blue text-white font-light text-[20px] ml-auto block hover:bg-white hover:text-blue hover:border-2">Küldés</button>
+                        <button type="button" (click)="onSubmit()" class="border-2 px-6 py-3 bg-blue text-white font-light text-[20px] ml-auto block hover:bg-white hover:text-blue hover:border-2">Küldés</button>
+                        <div class="text-gray bg-green p-3 text-xl   text-right rounded-md" *ngIf="responseMessage">{{ responseMessage }}</div>
                     </div>
+                    
                    
                   </form>
     </div>
 </div>
+</div>
+</div>
+
 <div class="md:h-[60px] md:w-[60px] w-17 h-17 rounded-full bg-pink flex justify-center items-center" id="scrollImage">
   <img  class="w-[50px]  invert" (click)="scrollToTop()" src="../../assets/svg/up.svg" alt="">
 </div>

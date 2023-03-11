@@ -1,28 +1,56 @@
 
-<div class="my-5">
+<div class="my-5 hiden">
     <h1 class="Main lg:text-7xl md:text-6xl text-4xl font-extralight text-center">{{ galleryById.id }}</h1>
 </div>
 <a routerLink="/galery">
     <p class="font-light text-gray text-[18px]  my-[50px] text-center hover:underline"> <span class="text-[20px]"><</span> Vissza a Galériába</p>
 </a>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-10">
-    <div *ngFor="let image of galleryById.img" class="">
-      <div class="flex justify-center items-center h-full">
-        <img (click)="openLightbox(image)"  src="{{ image }}" class="w-full h-full object-cover" oncontextmenu="return false;" ondragstart="return false;">
-      </div>
-    </div>
-</div>
 
-<!-- <div class="row"> 
+<!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-10" #imageContainer>
+  <ng-container *ngFor="let image of galleryById.img">
+    <div class="flex justify-center items-center h-full">
+      <img (click)="openLightbox(image)" src="{{ image }}" class="w-full h-full object-cover" style="object-fit: cover" oncontextmenu="return false;" ondragstart="return false;" >
+    </div>
+  </ng-container>
+</div> -->
+
+<!-- <div class="row">
   <div class="column">
-    <ng-container *ngFor="let image of galleryById.img" class="">
-    <img src="{{ image }}" style="width:100%">
+    <ng-container *ngFor="let image of galleryById.img | slice:0:5">
+        <img (click)="openLightbox(image)" src="{{ image }}" style="width:100%" oncontextmenu="return false;" ondragstart="return false;" >
+    </ng-container>
+  </div>
+
+  <div class="column">
+    <ng-container *ngFor="let image of galleryById.img | slice:5:10">
+        <img (click)="openLightbox(image)" src="{{ image }}" style="width:100%" oncontextmenu="return false;" ondragstart="return false;" >
+    </ng-container>
+  </div>
+
+  <div class="column">
+    <ng-container *ngFor="let image of galleryById.img | slice:10:15">
+        <img (click)="openLightbox(image)" src="{{ image }}" style="width:100%" oncontextmenu="return false;" ondragstart="return false;" >
+    </ng-container>
+  </div>
+  <div class="column">
+    <ng-container *ngFor="let image of galleryById.img | slice:15:20">
+        <img (click)="openLightbox(image)" src="{{ image }}" style="width:100%" oncontextmenu="return false;" ondragstart="return false;" >
     </ng-container>
   </div>
 </div> -->
 
-
+<div class="row">
+  <ng-container *ngFor="let row of galleryById.img | chunk: 0">
+    <div class="column">
+      <ng-container *ngFor="let image of row">
+        <div class="image-container">
+          <img (click)="openLightbox(image)" src="{{ image }}" oncontextmenu="return false;" ondragstart="return false;">
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
 
 
 
