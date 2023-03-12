@@ -35,18 +35,18 @@
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="firstName">Vezetéknév *</label>
                       <input type="text" id="firstName" formControlName="firstName" class="border border-gray  py-2 px-3 w-full" required>
-                      <p class="text-red-700">{{ error.firstName }}</p>
+                      <p *ngIf="error" class="text-red-700">{{ error.firstName }}</p>
                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="lastName">Keresztnév *</label>
                       <input type="text" id="lastName" formControlName="lastName" class="border border-gray  py-2 px-3 w-full" required>
-                      <p class="text-red-700">{{ error.lastName }}</p>
-                    </div>
+                      <p *ngIf="error" class="text-red-700">{{ error.lastName }}</p>
+                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="email">Email *</label>
                       <input type="email" id="email" formControlName="email" class="border border-gray  py-2 px-3 w-full" required>
-                      <p class="text-red-700">{{ error.email }}</p>
-                    </div>
+                      <p *ngIf="error" class="text-red-700">{{ error.email }}</p>
+                     </div>
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="subject">Tárgy *</label>
                       <select id="subject" formControlName="subject" class="border border-gray font-light text-gray text-[20px] py-2 px-3 w-full" required>
@@ -56,18 +56,18 @@
                         <option value="Szerződés">Egyéni</option>
                         <option value="Egyéb">Egyéb</option>
                       </select>
-                      <p class="text-red-700">{{ error.subject }}</p>
-                    </div>
+                      <p *ngIf="error" class="text-red-700">{{ error.subject }}</p>
+                     </div>
                     <div class="mb-4" *ngIf="myForm.get('subject')?.value === 'Egyéb'">
-                        <label class="block font-light text-gray text-[20px] mb-2" for="customSubject">Egyéb kategoria *</label>
-                        <input type="text" id="customSubject" formControlName="customSubject" class="border border-gray  py-2 px-3 w-full" required>
-                        <p class="text-red-700">{{ error.customSubject }}</p>
+                        <label class="block font-light text-gray text-[20px] mb-2" for="customsubject">Egyéb kategoria *</label>
+                        <input type="text" id="customsubject" formControlName="customsubject" class="border border-gray  py-2 px-3 w-full" required>
+                        <p *ngIf="error" class="text-red-700">{{ error.customsubject }} </p>
                       </div>              
                     <div class="mb-4">
                       <label class="block font-light text-gray text-[20px] mb-2" for="message">Üzenet *</label>
                       <textarea id="message" formControlName="message" class="border border-gray h-[150px] py-2 px-3 w-full" required></textarea>
-                      <p class="text-red-700">{{ error.message }}</p>
-                    </div>
+                      <p *ngIf="error" class="text-red-700">{{ error.message }}</p>
+                     </div>
                     <div class="py-10">
                         <button type="button" (click)="onSubmit()" class="border-2 px-6 py-3 bg-blue text-white font-light text-[20px] ml-auto block hover:bg-white hover:text-blue hover:border-2">Küldés</button>
                         <div class="text-gray bg-green p-3 text-xl   text-right rounded-md" *ngIf="responseMessage">{{ responseMessage }}</div>

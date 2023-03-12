@@ -35,7 +35,7 @@ export class ConnectComponent implements OnInit{
       lastName: [''],
       email: [''],
       subject: [''],
-      customSubject: [''],
+      customsubject: [''],
       message: ['']
     });
   }
@@ -52,14 +52,6 @@ export class ConnectComponent implements OnInit{
     this.storeInput();
   }
   
-  // myForm = new FormGroup({
-  //   firstName: new FormControl('', Validators.required),
-  //   lastName: new FormControl('', Validators.required),
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   subject: new FormControl('', Validators.required),
-  //   customSubject: new FormControl('', Validators.required),
-  //   message: new FormControl('', Validators.required)
-  // });
 
   storeInput() {
     let data = {
@@ -67,7 +59,7 @@ export class ConnectComponent implements OnInit{
       lastName: this.myForm.value.lastName,
       email: this.myForm.value.email,
       subject: this.myForm.value.subject,
-      customSubject: this.myForm.value.customSubject,
+      customsubject: this.myForm.value.customsubject,
       message: this.myForm.value.message
     };
     this.clearField();
@@ -79,7 +71,6 @@ export class ConnectComponent implements OnInit{
       },
       error: (err:any) => {
         this.error = err.error.errors;
-        console.log(err.error.errors.name)
       }
     });
   }
@@ -90,7 +81,7 @@ export class ConnectComponent implements OnInit{
         lastName: '',
         email: '',
         subject: '',
-        customSubject: '',
+        customsubject: '',
         message:''
       });
   }
